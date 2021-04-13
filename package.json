@@ -20,7 +20,10 @@
   },
   "homepage": "https://github.com/0124hitesh/express#readme",
   "dependencies": {
+    "body-parser": "^1.19.0",
     "express": "^4.17.1",
+    "express-handlebars": "^5.3.0",
+    "mongoose": "^5.12.3",
     "nodemon": "^2.0.7"
   }
 }
