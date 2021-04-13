@@ -13,3 +13,8 @@ app.get('/',(req,res)=>{res.send('hello')});
 //node index.js
 //nodemon index.js -- not required to refresh
 //package.json ->  script ->  start:"nodemon index.js"
+
+// npm init
+// npm i express
+// npm i nodemon -d
+
