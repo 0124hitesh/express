@@ -9,6 +9,8 @@ app.listen(Port,()=>{console.log("server connected")})
 // app.method(<route>, callback)  methods- get, post, delete, push
 //app.get('/',(req,res));
 app.get('/',(req,res)=>{res.send('hello')});
+app.get('/about',(req,res)=>{res.send('<h1>Aboutt</h1>')});
+
 
 //node index.js
 //nodemon index.js -- not required to refresh
