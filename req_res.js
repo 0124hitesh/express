@@ -21,12 +21,16 @@ app.get('/',(req,res)=>{
     ]);
 })
 
-app.get('/request',()=>{
+app.get('/request',(req,res)=>{
     console.log(req.url);
     console.log(req.method);
-    console.log(req.header);
+    console.log(req.headers);
     console.log(req.query);
     console.log(req.body);
+
+    // res.header('content-type', 'text/html');
+    // res.status(500);
+    // res.end();
 });
 
 app.get('/filee',(req,res)=>{
