@@ -21,6 +21,14 @@ app.get('/',(req,res)=>{
     ]);
 })
 
+app.get('/request',()=>{
+    console.log(req.url);
+    console.log(req.method);
+    console.log(req.header);
+    console.log(req.query);
+    console.log(req.body);
+});
+
 app.get('/filee',(req,res)=>{
     res.sendFile(path.resolve(__dirname)+"/req_res_file.html");
 })
