@@ -4,7 +4,7 @@ const app=express();
 
 // Provide suitable port if available otherwise 4000
 const Port=process.env.PORT || 4000;
-app.listen(Port,()=>{console.log("server connected")})
+app.listen(Port,()=>{console.log("server connected "+Port)})
 
 // app.method(<route>, callback)  methods- get, post, delete, push
 //app.get('/',(req,res));
