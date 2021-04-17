@@ -3,7 +3,7 @@ const path=require('path');
 
 const app=express();
 
-const port=process.nextTick.PORT || 3500;
+const port=process.env.PORT || 3500;
 app.listen(port,()=>console.log("server connected "+port));
 
 app.get('/',(req,res)=>{
@@ -25,7 +25,12 @@ app.get('/request',(req,res)=>{
     console.log(req.url);
     console.log(req.method);
     console.log(req.headers);
+
+    // req.query -- for get method
+    // send upto 256 character and visible in url 
     console.log(req.query);
+
+    // req.body -- for post method
     console.log(req.body);
 
     // res.header('content-type', 'text/html');
