@@ -30,6 +30,6 @@ app.post('/sign.html',(req,res)=>{
     }
 });
 app.use(function(req,res){
-    res.write("Not Available");
+    res.write("404 Page Not Found");
     res.end();
 })
