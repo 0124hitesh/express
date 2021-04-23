@@ -1,0 +1,7 @@
+POST http://localhost:3000/user
+
+###
+GET http://localhost:3000/dash
+
+###
+GET http://localhost:3000/
