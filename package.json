@@ -20,6 +20,7 @@
   },
   "homepage": "https://github.com/0124hitesh/express#readme",
   "dependencies": {
+    "@hapi/joi": "^17.1.1",
     "body-parser": "^1.19.0",
     "express": "^4.17.1",
     "express-handlebars": "^5.3.0",
