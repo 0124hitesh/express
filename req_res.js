@@ -14,7 +14,7 @@ app.get('/',(req,res)=>{
     //res.end();
 
     //res.sendFile(path.resolve(__dirname)+'/req_res_file.html');
-
+    res.setHeader('content-type','text/html');
     res.json([
         {name:"Hitehs",lastName:"Sharma"},
         {abc:"ljkl",xyz:454}
@@ -28,6 +28,7 @@ app.get('/request',(req,res)=>{
 
     // req.query -- for get method
     // send upto 256 character and visible in url 
+    // /?name="hiesh"&lnmare="ljj"
     console.log(req.query);
 
     // req.body -- for post method
