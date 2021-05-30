@@ -30,11 +30,28 @@ app.post('/',(req,res)=>{
 app.get('/',(req,res)=>{
     res.send(student);
 })
+// read specific record
+app.get('/:rollno', (req,res)=>{
+    const d=student.find((c)=>c.rollno === parseInt(req.params.rollno));
+    if(!d){res.send("No data")}
+    res.send(d);
+});
 
 // update
+const joi=require('@hapi/joi');
 app.put('/:rollno',(req,res)=>{
     const d=student.find((c)=> c.rollno === parseInt(req.params.rollno));
     if(!d){ res.send("No such student available"); return}
+
+    const schema=joi.object({
+        name:joi.string().min(3).required(),
+        course:joi.string().min(1).required()
+    });
+    const vali=schema.validate(req.body);
+    if(vali.error){
+        res.send(vali.error.message);
+        return;
+    }
     d.name=req.body.name;
     d.course=req.body.course;
     res.send("Updated")
