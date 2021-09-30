@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Front</title>
+</head>
+<body>
+    <!-- <form action="GET"> -->
+        <Button id='bt' onclick="getData()">Get All</Button>
+        <div id='div'></div>
+        <br>
+        <input type="text" id='inp_put'>
+        <button id='btn_put' onclick="putData()">Update Data</button>
+    <!-- </form> -->
+    
+    <script>
+       
+        // function getData(){
+        //     const d = document.getElementById('div');
+        //     const url = "http://localhost:4000/"
+        //     fetch(url).
+        //     then(async response=> {
+        //         console.log(response);
+        //         d.innerHTML = await response.json();
+        //     })
+        // }
+
+        async function getData(){
+            const d = document.getElementById('div');
+
+            const url = "http://localhost:4000/";
+            var count = 0;
+            await fetch(url).
+            then(async response=> {
+                count = parseInt(await response.json());
+                console.log(count);
+            })
+
+            for(let i = 0; i<count-1; ++i){
+                fetch("http://localhost:4000/" + i).
+                then(async response=> {
+                    // console.log(response);
+                    // d.innerHTML = await response.json();
+                    var x = document.createElement("h1");
+                    x.innerHTML = await response.json();
+                    
+                    d.appendChild(x);
+                })
+            }
+        }
+
+        function putData(){
+            const d = document.getElementById('inp_put').value;
+            
+            const url = "http://localhost:4000/put/" + d;
+            console.log(url);
+            
+            fetch('http://example.com/api/v1/registration', {
+            method: 'PUT',
+            headers: {
+                'Content-Type': 'application/x-www-form-urlencoded'
+            }
+            }).
+            then(async response => await response.json())
+        }
+    </script>
+</body>
+</html>
