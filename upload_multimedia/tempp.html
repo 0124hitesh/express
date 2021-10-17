@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Temp</title>
+</head>
+<body>
+    <h2>Temp Lorem ipsum dolor sit amet.</h2>
+    <form action="/upload" method="POST" enctype="multipart/form-data">
+        <img id="img">
+        <br>
+        <input type="file" name="file" accept="image/png, image/gif, image/jpeg, image/jpg" onchange="showImg(this)">
+        
+        <br><br>
+        <button type="submit">Click</button>
+    </form>
+    
+    <script>
+        function showImg(input) {
+                var img=document.getElementById("img");
+                if (input.files && input.files[0]) {
+                    var reader = new FileReader();
+                    reader.onload = function (e) {
+                        img.src=e.target.result;
+                        img.style.height='130px';
+                        img.style.width='130px';
+                    };
+                    reader.readAsDataURL(input.files[0]);
+                }
+        }
+    </script>
+</body>
+</html>
